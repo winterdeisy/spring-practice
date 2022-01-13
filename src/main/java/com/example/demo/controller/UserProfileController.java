@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,7 +55,10 @@ public class UserProfileController {
 		userProfile.setPhone(phone);
 		userProfile.setAddress(address);		
 }
-	
-	
+	//삭제
+	@DeleteMapping("/user/{id}")
+	public void deleteUserProfile(@PathVariable("id") String id) {
+		userMap.remove(id);
+	}
 	
 }
